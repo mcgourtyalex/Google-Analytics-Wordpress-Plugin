@@ -67,6 +67,20 @@
             }
         });
 
+        var lastWeekMap = new gapi.analytics.googleCharts.DataChart({
+            reportType: 'ga',
+            query: {
+                'dimensions': 'ga:country',
+                'metrics': 'ga:pageviews',
+                'start-date': '7daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                type: 'GEO',
+                container: 'mapWeek'
+            }
+        });
+
         // Chart for last month
         var lastMonth = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
@@ -140,6 +154,7 @@
             }
             lastWeek.set(newIds).execute();
             lastWeekGraph.set(newIds).execute();
+            lastWeekMap.set(newIds).execute();
         });
 
         // Create and change month selector
