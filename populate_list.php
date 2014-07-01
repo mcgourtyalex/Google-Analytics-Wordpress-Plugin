@@ -50,7 +50,21 @@
         // Get each post title
         foreach ( $cats as $cat ) {
             // Echo title to widget
-	        echo "<option>".$cat->name." | ".get_bloginfo('name')."</option>";
+	        echo "<option>".$cat->name." | ";
+            // Get category parent
+            $parent = get_the_category_by_ID($cat->parent);
+            // Throws error if no parent
+            while (!is_wp_error($parent)) {
+                // Add the parent to the title to match GA format
+                echo $parent." | ";
+                // Is there a grandparent?
+                $parentID = get_cat_ID($parent->parent);
+                // Traverse and continue
+                $parent = get_the_category_by_ID($parentID);
+            }
+            // Blog name last
+            echo get_bloginfo('name');
+            echo "</option>";
         }
         echo '</optgroup>';
     }
