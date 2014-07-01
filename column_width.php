@@ -7,6 +7,9 @@ function change_column_width() {
 	#dashboard-widgets .postbox-container {
 		width:550px !important;
 	}
+    .metabox-holder .postbox-container .empty-container {
+        border: none !important;
+    }
 }
 </style>
 <?php
