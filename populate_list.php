@@ -10,7 +10,9 @@
         pagesOptgroup();
         // (3) Add post options
         postsOptgroup();
-        // (4) End selector
+        // (4) Add category options
+        categoriesOptgroup();
+        // (5) End selector
         echo '</select><br /><br />';
     }    
 
@@ -36,6 +38,19 @@
         foreach ( $posts as $post ) {
             // Echo title to widget
 	        echo "<option>".$post->post_title." | ".get_bloginfo('name')."</option>";
+        }
+        echo '</optgroup>';
+    }
+
+    // (4) Get categories and list them as options
+    function categoriesOptgroup() {
+        // Get all posts (sorted by latest)
+        $cats = get_categories();
+        echo '<optgroup label="Categories">';
+        // Get each post title
+        foreach ( $cats as $cat ) {
+            // Echo title to widget
+	        echo "<option>".$cat->name." | ".get_bloginfo('name')."</option>";
         }
         echo '</optgroup>';
     }
