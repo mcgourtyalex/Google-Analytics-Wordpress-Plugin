@@ -6,15 +6,25 @@
         echo "Select a page:<br />";
         // (1) Start selector
         echo '<select id="pageSelector">';
-        // (2) Add page options
+        // (2) Add home page
+        homeOptGroup();
+        // (3) Add page options
         pagesOptgroup();
-        // (3) Add post options
+        // (4) Add post options
         postsOptgroup();
-        // (4) Add category options
+        // (5) Add category options
         categoriesOptgroup();
-        // (5) End selector
+        // (6) End selector
         echo '</select><br /><br />';
     }    
+
+    // (1) Get home page
+    function homeOptgroup() {
+        // Get all pages (Sorted by latest)
+        echo '<optgroup label="Homepage">';
+	    echo "<option>".get_bloginfo('name')."</option>";
+        echo '</optgroup>';
+    }
 
     // (2) Get pages and list them as options
     function pagesOptgroup() {
