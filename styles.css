@@ -11,7 +11,16 @@
         border-bottom: 1px solid #DDDDDD;
     }
     tr.blue {
-        background-color: rgba(0,0,255,.05);
+        background: rgba(0,0,255,.05);
+    }
+    tr.white {
+        background: white;
+    }
+    tr.hover {
+        background: rgba(255,0,0,.025);
+    }
+    tr.highlight {
+        background: rgba(255,0,0,.05);
     }
     .gapi-analytics-data-chart-table-styles-th {
         background: white;

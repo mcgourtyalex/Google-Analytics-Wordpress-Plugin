@@ -52,7 +52,7 @@
             chart: {
                 type: 'TABLE',
                 container: 'tableWeek',
-                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true}
+                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}}
             }
         });
 
@@ -96,7 +96,7 @@
             chart: {
                 type: 'TABLE',
                 container: 'tableMonth',
-                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true}
+                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}}
             }
         });
 
@@ -120,7 +120,7 @@
                 'start-date': '365daysAgo',
                 'end-date': 'yesterday'
             },
-            chart: { type: 'TABLE', container: 'tableYear', options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true} }
+            chart: { type: 'TABLE', container: 'tableYear', options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}} }
         });
 
         var lastYearGraph = new gapi.analytics.googleCharts.DataChart({
