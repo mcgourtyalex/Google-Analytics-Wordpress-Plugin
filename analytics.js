@@ -259,7 +259,7 @@
     }
 
     function getFormText(form) {
-        return form.options[form.selectedIndex].text;
+        return form.value;
     }
 
     function getNumberOfDays() {
@@ -271,8 +271,8 @@
     }
 
     function getPage() {
-        var parentDoc = parent.document;
-        var pageSelector = parentDoc.getElementById('pageSelector');
+        var pageSelector = document.getElementById('pageSelector');
+        console.log("here lies: " + pageSelector);
         return getFormText(pageSelector);
     }
 
@@ -286,14 +286,6 @@
 
     function reportResults() {
         document.getElementById('queryAnswer').innerHTML = queryResults;
-
-
-        // LETS TEST.
-        for (bar in lastWeek)
-        {
-            console.log("lastWeek has property " + bar);
-        }
-        // TEST SPOT.
     }
 
     function handleResults(response) {

@@ -4,6 +4,6 @@ $(document).ready(function ()
     {
         var $obj = $('.gapi-analytics-data-chart-table-styles-tr-selected').first();
         console.log($obj.contents().html());
-        $('#weekSelect').val($obj.contents().html());
+        $('#pageSelector').val($obj.contents().html());
     });
 });
