@@ -1,11 +1,10 @@
 <?php
-
 function change_column_width() {
 ?>
 <style>
 @media only screen and (min-width: 500px) {
 	#dashboard-widgets .postbox-container {
-		width:550px !important;
+		width:50% !important;
 	}
     .metabox-holder .postbox-container .empty-container {
         border: none !important;
@@ -14,6 +13,5 @@ function change_column_width() {
 </style>
 <?php
 }
-
 add_action('admin_head','change_column_width');
 ?>

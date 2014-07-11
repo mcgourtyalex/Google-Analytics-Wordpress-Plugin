@@ -16,4 +16,4 @@ function pages_widget_content() {
         populateList();
     }
 }
-    ?>
+?>

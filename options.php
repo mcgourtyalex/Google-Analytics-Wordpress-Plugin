@@ -32,7 +32,6 @@ function ga_settings_page() {
             echo "To set up this application, please create a Client ID with your Google Analytics account.";
         } 
     ?>
-
 <p><strong>To register a new Client ID,</strong><br />(1) Create a new project at the <a href ="https://console.developers.google.com/">Google Developer's Console</a> <br />(2) Visit 'APIs' under 'APIs & Auth' <br />(3) Turn on the Analytics API <br />(4) Visit 'Credentials' under 'APIs & Auth' <br />(5) 'Create new Client ID' <br />(6) Choose Web Application and enter your website's URL or localhost in 'Authorized Javascript Origins'</p>
 <form method="post" action="options.php">
     <?php settings_fields( 'ga_settings_group' ); ?>
@@ -53,7 +52,6 @@ function ga_settings_page() {
     </table>
     
     <?php submit_button(); ?>
-
 </form>
 </div>
 <?php } ?>
