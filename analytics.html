@@ -32,15 +32,16 @@
         height: 340px;
     }
 
-    #tableWeek > div > div {
+    #tableWeek > div > div:first-child {
         height: 300px !important;
     }
-    #tableMonth > div > div {
+    #tableMonth > div > div:first-child {
         height: 300px !important;
     }
-    #tableYear > div > div {
+    #tableYear > div > div:first-child {
         height: 300px !important;
     }
+
 </style>
 
 <!-- bug fix -->
@@ -76,25 +77,13 @@ Pass: autodeskengineering <br />
 <div id="sele">
 <section id="tableWeek"></section>
 </div>
-<input type="text" id="weekSelect"></input>
 
-<section id="graphWeek"></section>
-<section id="mapWeek"></section>
-<!-- Month containers (initially hidden) -->
-<section id="viewSelectorMonth" class="hide"></section>
-<section id="tableMonth" class="hide"></section>
-<section id="graphMonth" class="hide"></section>
-<!-- Year containers (initally hidden)-->
-<section id="viewSelectorYear" class="hide"></section>
-<section id="tableYear" class="hide"></section>
-<section id="graphYear" class="hide"></section>
-<!-- Query container (initally hidden)-->
-<section id="viewSelectorQuery" class="hide"></section>
 
 <!-- Custom query table -->
 <table>
 <tr><td colspan="2" class="header"><strong>Custom Query:</strong></td>
 </tr>
+<tr><td>Select page from above:</td><td><input type="text" id="weekSelect"></input></td></tr>
 <!-- (1) Choose from past X days -->
 <tr class="blue">
     <td>Sample size (# of days)</td>
@@ -114,6 +103,21 @@ Pass: autodeskengineering <br />
 <!-- (4) Fill response in this div -->
 <td><div id="queryAnswer"></div></td></tr>
 </table>
+
+<section id="graphWeek"></section>
+<section id="mapWeek"></section>
+<!-- Month containers (initially hidden) -->
+<section id="viewSelectorMonth" class="hide"></section>
+<section id="tableMonth" class="hide"></section>
+<section id="graphMonth" class="hide"></section>
+<!-- Year containers (initally hidden)-->
+<section id="viewSelectorYear" class="hide"></section>
+<section id="tableYear" class="hide"></section>
+<section id="graphYear" class="hide"></section>
+<!-- Query container (initally hidden)-->
+<section id="viewSelectorQuery" class="hide"></section>
+
+
 
 <!-- Library load -->
 <script type="text/javascript" src="load_analytics.js"></script>
