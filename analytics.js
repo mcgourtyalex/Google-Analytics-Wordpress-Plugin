@@ -6,6 +6,8 @@
     // Current metric to report
     var currentMetric;
 
+    var lastWeek;
+
     gapi.analytics.ready(function ()
     {
 
@@ -39,7 +41,7 @@
         // Timeline charts
 
         // Chart for last week
-        var lastWeek = new gapi.analytics.googleCharts.DataChart({
+        lastWeek = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:pageTitle',
@@ -284,6 +286,14 @@
 
     function reportResults() {
         document.getElementById('queryAnswer').innerHTML = queryResults;
+
+
+        // LETS TEST.
+        for (bar in lastWeek)
+        {
+            console.log("lastWeek has property " + bar);
+        }
+        // TEST SPOT.
     }
 
     function handleResults(response) {

@@ -29,17 +29,17 @@
         height: 800px;
     }
     #tableWeek, #tableMonth, #tableYear {
-        height: 320px;
+        height: 340px;
     }
 
     #tableWeek > div > div {
-        height: 290px !important;
+        height: 300px !important;
     }
     #tableMonth > div > div {
-        height: 290px !important;
+        height: 300px !important;
     }
     #tableYear > div > div {
-        height: 290px !important;
+        height: 300px !important;
     }
 </style>
 
@@ -49,6 +49,9 @@
 
 <!-- Script for hiding and showing charts -->
 <script type="text/javascript" src='hide.js'></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src='tdClick.js'></script>
 
 <!-- Create options for different time metrics, change with 'hide(this)'-->
 <p> <strong>View total page pageviews from last:</strong>
@@ -70,7 +73,11 @@ Pass: autodeskengineering <br />
 <br />
 <!-- Week containers -->
 <section id="viewSelectorWeek" class="hide"></section>
+<div id="sele">
 <section id="tableWeek"></section>
+</div>
+<input type="text" id="weekSelect"></input>
+
 <section id="graphWeek"></section>
 <section id="mapWeek"></section>
 <!-- Month containers (initially hidden) -->
