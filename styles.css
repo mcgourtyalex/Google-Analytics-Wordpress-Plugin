@@ -33,12 +33,15 @@
         height: 340px;
     }
 
-    #tableWeek > div > div:first-child {
-        height: 300px !important;
+    #tableWeek > div > div {
+        overflow: visible !important;
+        height: auto !important;
     }
     #tableMonth > div > div:first-child {
-        height: 300px !important;
+        overflow: visible !important;
+        height: auto !important;
     }
     #tableYear > div > div:first-child {
-        height: 300px !important;
+        overflow: visible !important;
+        height: auto !important;
     }

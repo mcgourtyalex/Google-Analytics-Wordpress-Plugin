@@ -45,7 +45,7 @@ Pass: autodeskengineering <br />
 <div id="yearDiv" class="hide">
 <section id="tableYear"></section>
 </div>
-
+<br />
 <!-- Custom query table -->
 <table>
 <tr><td colspan="2" class="header"><strong>Custom Query:</strong></td>
@@ -60,9 +60,13 @@ Pass: autodeskengineering <br />
 <tr>
     <td>Metric to sample</td>
     <td><select id="metric">
-            <option value="pageviews">Pageviews</option>
             <option value="avgTimeOnPage">Average Time on Page</option>
             <option value="entranceRate">Entrance Rate</option>
+            <option value="entrances">Entrances</option>
+            <option value="exitRate">Exit Rate</option>
+            <option value="pageviews">Pageviews</option>
+            <option value="pageviewsPerSession">Pageviews Per Session</option>
+            <option value="uniquePageviews">Unique Pageviews</option>
         </select></td>
 </tr>
 <!-- (3) Call getFromPHP, send info from 1 and 2 -->

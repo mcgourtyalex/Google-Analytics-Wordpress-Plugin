@@ -1,6 +1,6 @@
 <?php
 
-require_once( PATH . '\clientID.php');
+require_once( PATH . 'clientID.php');
 
 // Populate the widget:
 function pages_widget_content() {

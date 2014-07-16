@@ -28,11 +28,11 @@
 define( 'PATH', plugin_dir_path( __FILE__ ) );
 
 // Settings for adding Client_ID
-require_once( PATH . '\options.php' );
+require_once( PATH . 'options.php' );
 
 // Widget functions page
-require_once( PATH . '\custom_widgets.php' );
-require_once( PATH . '\column_width.php' );
+require_once( PATH . 'custom_widgets.php' );
+require_once( PATH . 'column_width.php' );
 
 // Main dashboard class
 class dashboard_widget {
