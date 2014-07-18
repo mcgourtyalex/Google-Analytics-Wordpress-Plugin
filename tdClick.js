@@ -2,22 +2,22 @@ $(document).ready(function ()
 {
     $('#weekDiv').click(function ()
     {
-        var $obj = $('#weekDiv .highlight').first();
-        console.log($obj.contents().html());
-        $('#pageSelector').val($obj.contents().html());
+        var $obj = $('#weekDiv .highlight > td').first();
+        console.log($obj.contents().text());
+        $('#pageSelector').val($obj.contents().text());
     });
 
     $('#monthDiv').click(function ()
     {
-        var $obj = $('#monthDiv .highlight').first();
-        console.log($obj.contents().html());
-        $('#pageSelector').val($obj.contents().html());
+        var $obj = $('#monthDiv .highlight > td').first();
+        console.log($obj.contents().text());
+        $('#pageSelector').val($obj.contents().text());
     });
 
     $('#yearDiv').click(function ()
     {
-        var $obj = $('#yearDiv .highlight').first();
-        console.log($obj.contents().html());
-        $('#pageSelector').val($obj.contents().html());
+        var $obj = $('#yearDiv .highlight > td').first();
+        console.log($obj.contents().text());
+        $('#pageSelector').val($obj.contents().text());
     });
 });
