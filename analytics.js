@@ -111,6 +111,20 @@
             chart: { type: 'LINE', container: 'graphMonth'}
         });
 
+        var lastMonthMap = new gapi.analytics.googleCharts.DataChart({
+            reportType: 'ga',
+            query: {
+                'dimensions': 'ga:country',
+                'metrics': 'ga:pageviews',
+                'start-date': '31daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                type: 'GEO',
+                container: 'mapMonth'
+            }
+        });
+
         // Chart for last year
         var lastYear = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
@@ -137,6 +151,19 @@
             }
         });
 
+        var lastYearMap = new gapi.analytics.googleCharts.DataChart({
+            reportType: 'ga',
+            query: {
+                'dimensions': 'ga:country',
+                'metrics': 'ga:pageviews',
+                'start-date': '365daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                type: 'GEO',
+                container: 'mapYear'
+            }
+        });
 
         // Connect components
         gapi.analytics.auth.on('success', function (response)
@@ -171,6 +198,7 @@
             }
             lastMonth.set(newIds).execute();
             lastMonthGraph.set(newIds).execute();
+            lastMonthMap.set(newIds).execute();
         });
 
         // Create and change year selector
@@ -183,6 +211,7 @@
             }
             lastYear.set(newIds).execute();
             lastYearGraph.set(newIds).execute();
+            lastYearMap.set(newIds).execute();
         });
 
         // Create data object to query by title names

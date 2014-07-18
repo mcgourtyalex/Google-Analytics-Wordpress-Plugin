@@ -8,6 +8,8 @@ function hide(selection) {
             document.getElementById("graphYear").style.display = "none";
             document.getElementById("graphWeek").style.display = "block";
             document.getElementById("mapWeek").style.display = "block";
+            document.getElementById("mapMonth").style.display = "none";
+            document.getElementById("mapYear").style.display = "none";
         } else if (value == "month") {
             document.getElementById("weekDiv").style.display = "none";
             document.getElementById("yearDiv").style.display = "none";
@@ -16,6 +18,8 @@ function hide(selection) {
             document.getElementById("graphYear").style.display = "none";
             document.getElementById("graphMonth").style.display = "block";
             document.getElementById("mapWeek").style.display = "none";
+            document.getElementById("mapMonth").style.display = "block";
+            document.getElementById("mapYear").style.display = "none";
         } else {
             document.getElementById("weekDiv").style.display = "none";
             document.getElementById("monthDiv").style.display = "none";
@@ -24,5 +28,7 @@ function hide(selection) {
             document.getElementById("graphMonth").style.display = "none";
             document.getElementById("graphYear").style.display = "block";
             document.getElementById("mapWeek").style.display = "none";
+            document.getElementById("mapMonth").style.display = "none";
+            document.getElementById("mapYear").style.display = "block";
         }
     }
