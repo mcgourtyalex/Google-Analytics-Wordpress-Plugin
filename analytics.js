@@ -45,14 +45,14 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:pageTitle',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews',
                 'start-date': '7daysAgo',
                 'end-date': 'yesterday'
             },
             chart: {
                 type: 'TABLE',
                 container: 'tableWeek',
-                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}}
+                options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'} }
             }
         });
 
@@ -60,13 +60,19 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:date',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
                 'start-date': '7daysAgo',
                 'end-date': 'yesterday'
             },
             chart: {
                 type: 'LINE',
                 container: 'graphWeek',
+                options: { 
+                    curveType: 'function', 
+                    colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
+                    legend: {position: 'top', alignment: 'center', }, 
+                    explorer: { actions: ['dragToZoom', 'rightClickToReset'], }
+                }
             }
         });
 
@@ -74,7 +80,7 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:uniquePageviews',
                 'start-date': '7daysAgo',
                 'end-date': 'yesterday'
             },
@@ -89,14 +95,14 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:pageTitle',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews',
                 'start-date': '30daysAgo',
                 'end-date': 'yesterday'
             },
             chart: {
                 type: 'TABLE',
                 container: 'tableMonth',
-                options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}}
+                options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'} }
             }
         });
 
@@ -104,18 +110,27 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:date',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
                 'start-date': '30daysAgo',
                 'end-date': 'yesterday'
             },
-            chart: { type: 'LINE', container: 'graphMonth'}
+            chart: { 
+                type: 'LINE', 
+                container: 'graphMonth', 
+                options: { 
+                    curveType: 'function', 
+                    colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
+                    legend: {position: 'none'}, 
+                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] } 
+                } 
+            }
         });
 
         var lastMonthMap = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:uniquePageviews',
                 'start-date': '31daysAgo',
                 'end-date': 'yesterday'
             },
@@ -130,24 +145,30 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:pageTitle',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews',
                 'start-date': '365daysAgo',
                 'end-date': 'yesterday'
             },
-            chart: { type: 'TABLE', container: 'tableYear', options: {page: "enable", pageSize: 8, sort: "enable", width: 500, allowHTML: true, cssClassNames: {oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}} }
+            chart: { type: 'TABLE', container: 'tableYear', options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}} }
         });
 
         var lastYearGraph = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:yearMonth',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
                 'start-date': '365daysAgo',
                 'end-date': 'yesterday'
             },
             chart: {
                 type: 'LINE',
-                container: 'graphYear'
+                container: 'graphYear',
+                options: { 
+                    curveType: 'function', 
+                    colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
+                    legend: {position: 'none'}, 
+                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] } 
+                }
             }
         });
 
@@ -155,7 +176,7 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:pageviews',
+                'metrics': 'ga:uniquePageviews',
                 'start-date': '365daysAgo',
                 'end-date': 'yesterday'
             },

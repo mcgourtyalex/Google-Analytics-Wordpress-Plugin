@@ -45,9 +45,9 @@ Pass: autodeskengineering <br />
 <div id="yearDiv" class="hide">
 <section id="tableYear"></section>
 </div>
-<br /><br />
 <!-- Custom query table -->
-<table>
+<div id="custom_query">
+<table class="dotted">
 <tr><td colspan="2" class="header"><strong>Custom Query:</strong></td>
 </tr>
 <tr><td>Select page from above:</td><td><input type="text" id="pageSelector"></input></td></tr>
@@ -74,8 +74,13 @@ Pass: autodeskengineering <br />
 <!-- (4) Fill response in this div -->
 <td><div id="queryAnswer"></div></td></tr>
 </table>
-<br /><br />
-<strong>EHP Totals:</strong>
+</div>
+
+<div id="ehp_totals">
+<table class="totals">
+<tr><td class="header"><strong>EHP Totals:</strong> (drag graph to zoom, right click to zoom out)</td>
+</tr>
+<tr><td>
 
 <!-- Week containers -->
 <section id="viewSelectorWeek" class="hide"></section>
@@ -91,7 +96,8 @@ Pass: autodeskengineering <br />
 <section id="mapYear" class="hide"></section>
 <!-- Query container (initally hidden)-->
 <section id="viewSelectorQuery" class="hide"></section>
-
+</td></tr></table>
+</div>
 
 
 <!-- Library load -->

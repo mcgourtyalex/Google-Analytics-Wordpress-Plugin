@@ -2,7 +2,7 @@
          font-size: 14px;
     }
     td {padding: 10px; text-align: left;}
-    table {border: 1px dashed #888888; width: 450px; border-collapse: collapse;}
+    table.dotted {border: 1px solid #CCCCCC; min-width: 450px; border-collapse: collapse;}
     div.hide, section.hide {
         display: none;
     }
@@ -30,18 +30,43 @@
         height: 800px;
     }
     #tableWeek, #tableMonth, #tableYear {
-        height: 340px;
     }
 
-    #tableWeek > div > div {
+    #custom_query {
+        margin: 10px;
+        margin-left: 0px;
+    }
+    #ehp_totals {
+        margin: 10px;
+        margin-left: 0px;
+        border: 1px solid #CCCCCC;
+        width: 470px;
+    }
+    .totals {
+        padding: 0px;
+        margin: 0px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #tableWeek > div > div:first-child {
+        border: 1px solid #CCCCCC;
         overflow: visible !important;
         height: auto !important;
+        width: auto !important;
+        max-width: 95%;
     }
     #tableMonth > div > div:first-child {
+        border: 1px solid #CCCCCC;
         overflow: visible !important;
         height: auto !important;
+        width: auto !important;
+        max-width: 95%;
     }
     #tableYear > div > div:first-child {
+        border: 1px solid #CCCCCC;
         overflow: visible !important;
         height: auto !important;
+        width: auto !important;
+        max-width: 95%;
     }
