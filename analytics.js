@@ -71,7 +71,8 @@
                     curveType: 'function', 
                     colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
                     legend: {position: 'top', alignment: 'center', }, 
-                    explorer: { actions: ['dragToZoom', 'rightClickToReset'], }
+                    explorer: {actions: ['dragToZoom', 'rightClickToReset'], },
+                    animation: {duration: 10000, easing: 'in'},
                 }
             }
         });
@@ -80,13 +81,13 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:uniquePageviews',
+                'metrics': 'ga:pageviews',
                 'start-date': '7daysAgo',
                 'end-date': 'yesterday'
             },
             chart: {
                 type: 'GEO',
-                container: 'mapWeek'
+                container: 'mapWeek',
             }
         });
 
@@ -130,7 +131,7 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:uniquePageviews',
+                'metrics': 'ga:pageviews',
                 'start-date': '31daysAgo',
                 'end-date': 'yesterday'
             },
@@ -176,7 +177,7 @@
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
-                'metrics': 'ga:uniquePageviews',
+                'metrics': 'ga:pageviews',
                 'start-date': '365daysAgo',
                 'end-date': 'yesterday'
             },
@@ -218,8 +219,11 @@
                 }
             }
             lastMonth.set(newIds).execute();
-            lastMonthGraph.set(newIds).execute();
-            lastMonthMap.set(newIds).execute();
+            window.setTimeout(
+                function () {
+                    lastMonthGraph.set(newIds).execute();
+                    lastMonthMap.set(newIds).execute();
+                }, 2500);
         });
 
         // Create and change year selector
@@ -231,8 +235,11 @@
                 }
             }
             lastYear.set(newIds).execute();
-            lastYearGraph.set(newIds).execute();
-            lastYearMap.set(newIds).execute();
+            window.setTimeout(
+                function () {
+                    lastYearGraph.set(newIds).execute();
+                    lastYearMap.set(newIds).execute();
+                }, 5000);
         });
 
         // Create data object to query by title names
