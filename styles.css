@@ -1,19 +1,26 @@
-    body{font-family: Arial, sans-serif;
-         font-size: 14px;
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
     }
-    td {padding: 10px; text-align: left;}
-    table.dotted {border: 1px solid #CCCCCC; min-width: 450px; border-collapse: collapse;}
+    div.wrapper {
+        width: 100%;
+        padding: 10px;
+        overflow: auto;
+        display: inline;
+    }
     div.hide, section.hide {
         display: none;
     }
-    td.header {
-        padding-bottom: 2px;
+    div.header {
         border-bottom: 1px solid #DDDDDD;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
-    tr.blue {
+    .blue {
         background: rgba(0,0,255,.05);
     }
-    tr.white {
+    .white {
         background: white;
     }
     tr.hover {
@@ -26,47 +33,65 @@
         background: white;
         border-bottom: 1px solid #DDDDDD;
     }
-    google-visualization-table-table {
-        height: 800px;
-    }
-    #tableWeek, #tableMonth, #tableYear {
+    #custom_query {
+        margin-top: 10px;
+        border:  1px solid #DDDDDD;
+        overflow: auto;
+        overflow-x: hidden;
     }
 
-    #custom_query {
-        margin: 10px;
-        margin-left: 0px;
-    }
     #ehp_totals {
-        margin: 10px;
-        margin-left: 0px;
+        margin-top: 10px;
         border: 1px solid #CCCCCC;
-        width: 470px;
+        width: 100%;
+        display: inline;
     }
-    .totals {
+
+    #table > div > div:first-child {
+        border: 1px solid #CCCCCC;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    .table_div {
+        float: left;
+        width: 45%;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .table_row {
         padding: 0px;
         margin: 0px;
-        border-collapse: collapse;
         width: 100%;
+        overflow: auto;
+        overflow-x: hidden;
     }
 
-    #tableWeek > div > div:first-child {
-        border: 1px solid #CCCCCC;
-        overflow: visible !important;
-        height: auto !important;
-        width: auto !important;
-        max-width: 95%;
+    .sections {
+        clear: both;
+        border: 1px solid #DDDDDD;
+        margin-top: 10px;
+        overflow: hidden;
     }
-    #tableMonth > div > div:first-child {
-        border: 1px solid #CCCCCC;
-        overflow: visible !important;
-        height: auto !important;
-        width: auto !important;
-        max-width: 95%;
+    .clear {
+        clear: both;
+        padding: 10px;
+        background: rgba(0,0,255,.05);
     }
-    #tableYear > div > div:first-child {
-        border: 1px solid #CCCCCC;
-        overflow: visible !important;
-        height: auto !important;
-        width: auto !important;
-        max-width: 95%;
+    
+    input[type=range] {
+        width: 200px;
+        height:20px;
+    }
+
+    .get_data {
+        padding-left: 10px;
+        padding-right: 10px;
+        background: white;
+        border: 1px solid #AAAAAA;
+    }
+    .get_data:hover {
+        border: 1px solid #888888;
     }

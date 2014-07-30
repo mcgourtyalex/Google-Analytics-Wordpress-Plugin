@@ -6,7 +6,11 @@
     // Current metric to report
     var currentMetric;
 
-    var lastWeek;
+    var last;
+
+    var viewSelector;
+    var start_date = '7daysAgo';
+    var end_date = 'yesterday';
 
     gapi.analytics.ready(function ()
     {
@@ -22,16 +26,8 @@
 
         // View selectors (hidden)
 
-        var viewSelectorWeek = new gapi.analytics.ViewSelector({
-            container: 'viewSelectorWeek'
-        });
-
-        var viewSelectorMonth = new gapi.analytics.ViewSelector({
-            container: 'viewSelectorMonth'
-        });
-
-        var viewSelectorYear = new gapi.analytics.ViewSelector({
-            container: 'viewSelectorYear'
+        viewSelector = new gapi.analytics.ViewSelector({
+            container: 'viewSelector'
         });
 
         viewSelectorQuery = new gapi.analytics.ViewSelector({
@@ -41,149 +37,73 @@
         // Timeline charts
 
         // Chart for last week
-        lastWeek = new gapi.analytics.googleCharts.DataChart({
+        data = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:pageTitle',
                 'metrics': 'ga:pageviews,ga:uniquePageviews',
-                'start-date': '7daysAgo',
-                'end-date': 'yesterday'
+                'start-date': start_date,
+                'end-date': end_date
             },
             chart: {
                 type: 'TABLE',
-                container: 'tableWeek',
-                options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'} }
+                container: 'table',
+                options: { 
+                    page: "enable", 
+                    pageSize: 8, 
+                    sort: "enable", 
+                    allowHTML: true, 
+                    cssClassNames: { 
+                        oddTableRow: 'blue', 
+                        tableRow: 'white', 
+                        selectedTableRow: 'highlight', 
+                        hoverTableRow: 'hover'
+                    },
+                    width: "100%"
+                }
             }
         });
 
-        var lastWeekGraph = new gapi.analytics.googleCharts.DataChart({
+        var dataGraph = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:date',
                 'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
-                'start-date': '7daysAgo',
-                'end-date': 'yesterday'
+                'start-date': start_date,
+                'end-date': end_date
             },
             chart: {
                 type: 'LINE',
-                container: 'graphWeek',
+                container: 'graph',
                 options: { 
                     curveType: 'function', 
                     colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
                     legend: {position: 'top', alignment: 'center', }, 
                     explorer: {actions: ['dragToZoom', 'rightClickToReset'], },
-                    animation: {duration: 10000, easing: 'in'},
+                    animation: {duration: 1000, easing: 'out'},
+                    backgroundColor: { fill:'transparent' },
+                    width: "100%"
                 }
             }
         });
 
-        var lastWeekMap = new gapi.analytics.googleCharts.DataChart({
+        var dataMap = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
                 'metrics': 'ga:pageviews',
-                'start-date': '7daysAgo',
-                'end-date': 'yesterday'
+                'start-date': start_date,
+                'end-date': end_date
             },
             chart: {
                 type: 'GEO',
-                container: 'mapWeek',
-            }
-        });
-
-        // Chart for last month
-        var lastMonth = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:pageTitle',
-                'metrics': 'ga:pageviews,ga:uniquePageviews',
-                'start-date': '30daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: {
-                type: 'TABLE',
-                container: 'tableMonth',
-                options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'} }
-            }
-        });
-
-        var lastMonthGraph = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:date',
-                'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
-                'start-date': '30daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: { 
-                type: 'LINE', 
-                container: 'graphMonth', 
+                container: 'map',
                 options: { 
-                    curveType: 'function', 
                     colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
-                    legend: {position: 'none'}, 
-                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] } 
-                } 
-            }
-        });
-
-        var lastMonthMap = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:country',
-                'metrics': 'ga:pageviews',
-                'start-date': '31daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: {
-                type: 'GEO',
-                container: 'mapMonth'
-            }
-        });
-
-        // Chart for last year
-        var lastYear = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:pageTitle',
-                'metrics': 'ga:pageviews,ga:uniquePageviews',
-                'start-date': '365daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: { type: 'TABLE', container: 'tableYear', options: { page: "enable", pageSize: 8, sort: "enable", allowHTML: true, cssClassNames: { oddTableRow: 'blue', tableRow: 'white', selectedTableRow: 'highlight', hoverTableRow: 'hover'}} }
-        });
-
-        var lastYearGraph = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:yearMonth',
-                'metrics': 'ga:pageviews,ga:uniquePageviews,ga:sessions,ga:bounces,ga:newUsers',
-                'start-date': '365daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: {
-                type: 'LINE',
-                container: 'graphYear',
-                options: { 
-                    curveType: 'function', 
-                    colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
-                    legend: {position: 'none'}, 
-                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] } 
+                    animation: {duration: 1000, easing: 'in'},
+                    backgroundColor: { fill:'transparent' },
+                    width: "100%"
                 }
-            }
-        });
-
-        var lastYearMap = new gapi.analytics.googleCharts.DataChart({
-            reportType: 'ga',
-            query: {
-                'dimensions': 'ga:country',
-                'metrics': 'ga:pageviews',
-                'start-date': '365daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: {
-                type: 'GEO',
-                container: 'mapYear'
             }
         });
 
@@ -191,55 +111,23 @@
         gapi.analytics.auth.on('success', function (response)
         {
             document.getElementById('auth-button').style.display = "none";
-            viewSelectorWeek.execute();
-            viewSelectorMonth.execute();
-            viewSelectorYear.execute();
+            viewSelector.execute();
             viewSelectorQuery.execute();
         });
 
-        // Create and change week selector
-        viewSelectorWeek.on('change', function (ids)
+        // Create and change  selector
+        viewSelector.on('change', function (ids)
         {
             var newIds = {
                 query: {
-                    ids: ids
+                    ids: ids,
+                    'start-date': start_date,
+                    'end-date': end_date,
                 }
             }
-            lastWeek.set(newIds).execute();
-            lastWeekGraph.set(newIds).execute();
-            lastWeekMap.set(newIds).execute();
-        });
-
-        // Create and change month selector
-        viewSelectorMonth.on('change', function (ids)
-        {
-            var newIds = {
-                query: {
-                    ids: ids
-                }
-            }
-            lastMonth.set(newIds).execute();
-            window.setTimeout(
-                function () {
-                    lastMonthGraph.set(newIds).execute();
-                    lastMonthMap.set(newIds).execute();
-                }, 2500);
-        });
-
-        // Create and change year selector
-        viewSelectorYear.on('change', function (ids)
-        {
-            var newIds = {
-                query: {
-                    ids: ids
-                }
-            }
-            lastYear.set(newIds).execute();
-            window.setTimeout(
-                function () {
-                    lastYearGraph.set(newIds).execute();
-                    lastYearMap.set(newIds).execute();
-                }, 5000);
+            data.set(newIds).execute();
+            dataGraph.set(newIds).execute();
+            dataMap.set(newIds).execute();
         });
 
         // Create data object to query by title names
@@ -350,4 +238,10 @@
         if (data != undefined){
             queryResults = data;
         }
+    }
+
+    function change_days(days) {
+        start_date = days + "daysAgo";
+        console.log(start_date);
+        viewSelector.execute();
     }

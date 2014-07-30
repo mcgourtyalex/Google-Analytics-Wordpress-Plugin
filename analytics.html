@@ -16,16 +16,19 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src='tdClick.js'></script>
 
+<div class="wrapper">
 <!-- Create options for different time metrics, change with 'hide(this)'-->
-<p> <strong>View total page pageviews from last:</strong>
-    <select onchange="hide(this)">
-        <option value="week">Week</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-    </select>
-</p>
-
-
+<div class="table_row">
+<strong>View total page pageviews from last:</strong>
+<select id="time_selector">
+    <option value="7" selected="selected">Week</option>
+    <option value="31">Month</option>
+    <option value="365">Year</option>
+</select>
+</div>
+<div class="table_row">
+<input id="time_range" type="range" name="time" min="1" max="365">
+</div>
 
 <!-- Containing elements -->
 <section id="auth-button">
@@ -37,68 +40,57 @@ Pass: autodeskengineering <br />
 
 <!-- Table containers -->
 <div id="weekDiv">
-<section id="tableWeek"></section>
+<section id="table"></section>
 </div>
-<div id="monthDiv" class="hide">
-<section id="tableMonth"></section>
-</div>
-<div id="yearDiv" class="hide">
-<section id="tableYear"></section>
-</div>
+
 <!-- Custom query table -->
 <div id="custom_query">
-<table class="dotted">
-<tr><td colspan="2" class="header"><strong>Custom Query:</strong></td>
-</tr>
-<tr><td>Select page from above:</td><td><input type="text" id="pageSelector"></input></td></tr>
-<!-- (1) Choose from past X days -->
-<tr class="blue">
-    <td>Sample size (# of days)</td>
-    <td><input type="text" id="numberOfDays"></input></td>
-</tr>
-<!-- (2) Choose metrics for viewing -->
-<tr>
-    <td>Metric to sample</td>
-    <td><select id="metric">
-            <option value="avgTimeOnPage">Average Time on Page</option>
-            <option value="entranceRate">Entrance Rate</option>
-            <option value="entrances">Entrances</option>
-            <option value="exitRate">Exit Rate</option>
-            <option value="pageviews">Pageviews</option>
-            <option value="pageviewsPerSession">Pageviews Per Session</option>
-            <option value="uniquePageviews">Unique Pageviews</option>
-        </select></td>
-</tr>
-<!-- (3) Call getFromPHP, send info from 1 and 2 -->
-<tr class="blue"><td><button type="button" onclick="aggregateQuery();">Fetch Data</button></td>
-<!-- (4) Fill response in this div -->
-<td><div id="queryAnswer"></div></td></tr>
-</table>
+
+<div colspan="2" class="header"><strong>Analytics Data Query:</strong></div>
+
+<div class="table_row">
+<div class="table_div">Page selection</div>
+<div class="table_div"><input type="text" id="pageSelector"></input></div>
 </div>
 
-<div id="ehp_totals">
-<table class="totals">
-<tr><td class="header"><strong>EHP Totals:</strong> (drag graph to zoom, right click to zoom out)</td>
-</tr>
-<tr><td>
+<div class="table_row blue">
+<div class="table_div">Sample size</div>
+<div class="table_div"><input type="text" id="numberOfDays"></div>
+</div>
 
-<!-- Week containers -->
-<section id="viewSelectorWeek" class="hide"></section>
-<section id="graphWeek"></section>
-<section id="mapWeek"></section>
-<!-- Month containers (initially hidden) -->
-<section id="viewSelectorMonth" class="hide"></section>
-<section id="graphMonth" class="hide"></section>
-<section id="mapMonth" class="hide"></section>
-<!-- Year containers (initally hidden)-->
-<section id="viewSelectorYear" class="hide"></section>
-<section id="graphYear" class="hide"></section>
-<section id="mapYear" class="hide"></section>
+<div class="table_row">
+<div class="table_div">Data metric</div>
+<div class="table_div"><select id="metric">
+        <option value="avgTimeOnPage">Average Time on Page</option>
+        <option value="entranceRate">Entrance Rate</option>
+        <option value="entrances">Entrances</option>
+        <option value="exitRate">Exit Rate</option>
+        <option value="pageviews">Pageviews</option>
+        <option value="pageviewsPerSession">Pageviews Per Session</option>
+        <option value="uniquePageviews">Unique Pageviews</option>
+    </select>
+</div>
+</div>
+  
+<div class="table_row blue">
+<div class="table_div"><button type="button" class="get_data" onclick="aggregateQuery();">Get Data</button></div>
+<!-- (4) Fill response in this div -->
+<div id="queryAnswer" class="table_div"></div>
+</div>
+</div>
+
+<div class="sections">
+<div class="header"><strong>EHP Totals:</strong> (drag graph to zoom, right click to zoom out)</div>
+<div class="clear">
+
+<section id="viewSelector" class="hide"></section>
+<section id="graph"></section>
+<section id="map"></section>
+
 <!-- Query container (initally hidden)-->
 <section id="viewSelectorQuery" class="hide"></section>
-</td></tr></table>
 </div>
-
+</div>
 
 <!-- Library load -->
 <script type="text/javascript" src="load_analytics.js"></script>

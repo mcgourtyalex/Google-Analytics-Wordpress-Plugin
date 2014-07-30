@@ -20,4 +20,17 @@ $(document).ready(function ()
         console.log($obj.contents().text());
         $('#pageSelector').val($obj.contents().text());
     });
+
+    $('#time_selector').change(function ()
+    {
+        var value = $("#time_selector").val();
+        $('#numberOfDays').val(value);
+        change_days(value);
+    });
+    $('#time_range').change(function ()
+    {
+        var value = $("#time_range").val();
+        $('#numberOfDays').val(value);
+        change_days(value);
+    });
 });
