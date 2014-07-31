@@ -27,6 +27,7 @@ $(document).ready(function ()
         $('#numberOfDays').val(value);
         change_days(value);
     });
+
     $('#time_range').change(function ()
     {
         var value = $("#time_range").val();

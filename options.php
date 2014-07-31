@@ -41,17 +41,11 @@ function ga_settings_page() {
         <th scope="row">Enter New Client ID</th>
         <td><input type="text" name="client_id" value="<?php echo get_option('client_id'); ?>" /></td>
         </tr>
-        <!--<tr>
-        <th scope="row">Gmail</th>
-        <td><input type="text" name="username" value="<?php echo get_option('username'); ?>" /></td>
-        </tr>
-        <tr>
-        <th scope="row">Password</th>
-        <td><input type="password" name="password" value="<?php echo get_option('password'); ?>" /></td>
-        </tr>-->
     </table>
     
     <?php submit_button(); ?>
+    <br />
+    <a target="_blank" href="../wp-content/plugins/credentials/demo/demo.html">?</a>
 </form>
 </div>
 <?php } ?>

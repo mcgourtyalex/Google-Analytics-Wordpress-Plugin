@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Google Analytics EHP</title>
+        <link rel="stylesheet" type="text/css" href="demo.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">
+                Engineer's Home Page Google Analytics
+            </div>
+            <div class="content">
+
+            <div class="sub_header">
+                Features:
+            </div>
+            <div class="column">
+                <ul>
+                <li><span class="bold">Target information: </span>The Engineer's Home Page serves to keep the Autodesk community consistent in practices and collaboration. Understanding the visibility of the information that the EHP provides is tantamount to keeping the engineering community well informed.</li>
+                <li><span class="bold">No content left unseen: </span>Other plugins won't show you a complete set of data - the EHP analytics dashboard plugin provides a total view for the scope that each new piece of content is reaching.</li>
+                <li><span class="bold">Spread valuable tools: </span>Understanding which resources are most valuable to engineers will help keep the community as informed as possible.</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="img_wrap">
+                    <img class="bigger_imgs" src="growth.png" />
+                </div>
+            </div>
+
+            <div class="sub_header">
+                Using the plugin:
+            </div>
+            <div class="column">
+                <ul>
+                <li>To view the chart of pageviews, graph of data, and map from the past week, month, or year, simply select from the pulldown at the top and browse the list or graph that populate. For a more specific time range, use the slider.</li>
+                <li>To find further metrics for each page, select a page from the list or type the page’s title verbatim. Then, enter the sample size of number of days before the current date, choose a query type, and click fetch data.</li>
+                <li>To manipulate the graph, select a timezone with the pulldown or slider. To zoom, scroll over the area of the graph you'd like to zoom in on. To zoom out, right click.</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="one img_wrap">
+                    <img class="small_imgs" src="select.png" />
+                </div>
+                <div class="three img_wrap">
+                    <img class="big_imgs" src="graph.png" />
+                </div>
+                <div class="two img_wrap">
+                    <img class="big_imgs" src="query.png" />
+                </div>
+            </div>
+
+            <div class="sub_header">
+                Client ID:
+            </div>
+            <div class="column">
+                IT IS NECESSARY FOR EACH WORDPRESS PAGE HOSTING THE PLUGIN TO HAVE A UNIQUE CLIENT ID ASSOCIATED WITH THE EHP.AUTO ACCOUNT.<br />
+                <br />
+                Here are the steps to create a new Client ID if necessary:<br />
+                <ul>
+                <li>	Create a new project at the Google Developer's Console </li>
+                <li>	Visit 'APIs' under 'APIs & Auth' </li>
+                <li>	Turn on the Analytics API </li>
+                <li>	Visit 'Credentials' under 'APIs & Auth' </li>
+                <li>	'Create new Client ID' </li>
+                <li>	Choose Web Application and enter your website's URL or localhost in 'Authorized Javascript Origins' </li>
+                </ul>
+                The following Client-ID is associated with engineering.autodesk.com and can be used with the plugin on that domain: 
+                <div class="bold">491083789507-pslftokfp2tsr3cpv898tunds0n7q6se.apps.googleusercontent.com</div>
+            </div>
+            <div class="column">
+                <div class="one img_wrap">
+                    <img class="small_imgs" src="console.png" />
+                </div>
+                <div class="five img_wrap">
+                    <img class="small_imgs" src="oauth.png" />
+                </div>
+                <div class="four img_wrap">
+                    <img class="small_imgs" src="credentials.png" />
+                </div>
+                <div class="six img_wrap">
+                    <img class="big_imgs" src="client id.png" />
+                </div>
+            </div>
+
+            <div class="sub_header">
+                Tracking Code:
+            </div>
+            <div class="column">
+                The tracking code listed here can be embedded into any page to add its analytics to the ehp.auto account.<br />
+                <br />
+                OR, the following tracking ID can be used: <br/>
+                <div class="bold"> UA-52252300-1 </div><br/>
+                PLEASE NOTE:<br />
+                <br />
+                <i>If a page has not shown up in the list, either it has not existed long enough for data to populate in Google Analytics, the tracking code is not working, or no one has viewed the page yet.</i>
+            </div>
+            <div class="column">
+                <div class="bold">
+                    <code>
+                    &lt;script type="text/javascript"&gt;
+                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                    ga('create', 'UA-52252300-1', 'auto');
+		            ga('require', 'linkid', 'linkid.js');
+                    ga('require', 'displayfeatures');
+                    ga('send', 'pageview');
+                    &lt;/script&gt;
+                    </code>
+                </div>
+            </div>
+
+            
+        </div>
+    </body>
+</html>
