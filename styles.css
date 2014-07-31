@@ -95,3 +95,15 @@
     .get_data:hover {
         border: 1px solid #888888;
     }
+
+    #page_displayed {
+        display: inline;
+    }
+    
+    #slider {
+        display: inline;
+    }
+    
+    #overview {
+        display: none;
+    }

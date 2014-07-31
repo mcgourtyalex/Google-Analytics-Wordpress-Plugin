@@ -45,7 +45,7 @@ function ga_settings_page() {
     
     <?php submit_button(); ?>
     <br />
-    <a target="_blank" href="../wp-content/plugins/credentials/demo/demo.html">?</a>
+    <a target="_blank" href="../wp-content/plugins/google-analytics-page-list/demo/demo.html">?</a>
 </form>
 </div>
 <?php } ?>

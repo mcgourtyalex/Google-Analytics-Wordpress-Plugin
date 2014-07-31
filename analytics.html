@@ -10,11 +10,8 @@
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 <script type='text/javascript'> google.load('visualization', '1', {'packages': ['geomap']});</script>
 
-<!-- Script for hiding and showing charts -->
-<script type="text/javascript" src='hide.js'></script>
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src='tdClick.js'></script>
+<script type="text/javascript" src='move_values.js'></script>
 
 <div class="wrapper">
 <!-- Create options for different time metrics, change with 'hide(this)'-->
@@ -27,7 +24,7 @@
 </select>
 </div>
 <div class="table_row">
-<input id="time_range" type="range" name="time" min="1" max="365">
+<input id="time_range" type="range" name="time" min="1" max="365" value="7"><div id="slider"></div>
 </div>
 
 <!-- Containing elements -->
@@ -43,7 +40,22 @@ Pass: autodeskengineering <br />
 <section id="table"></section>
 </div>
 
-<!-- Custom query table -->
+
+
+<div class="sections">
+<div class="header"><div id="page_displayed">EHP Totals: </div><button id="overview" class="get_data" onclick="overview()">Site Overview</button></div>
+<div class="clear">
+
+<section id="viewSelector" class="hide"></section>
+<section id="graph"></section>
+<section id="map"></section>
+
+<!-- Query container (initally hidden)-->
+<section id="viewSelectorQuery" class="hide"></section>
+</div>
+</div>
+
+    <!-- Custom query table -->
 <div id="custom_query">
 
 <div colspan="2" class="header"><strong>Analytics Data Query:</strong></div>
@@ -76,19 +88,6 @@ Pass: autodeskengineering <br />
 <div class="table_div"><button type="button" class="get_data" onclick="aggregateQuery();">Get Data</button></div>
 <!-- (4) Fill response in this div -->
 <div id="queryAnswer" class="table_div"></div>
-</div>
-</div>
-
-<div class="sections">
-<div class="header"><strong>EHP Totals:</strong> (drag graph to zoom, right click to zoom out)</div>
-<div class="clear">
-
-<section id="viewSelector" class="hide"></section>
-<section id="graph"></section>
-<section id="map"></section>
-
-<!-- Query container (initally hidden)-->
-<section id="viewSelectorQuery" class="hide"></section>
 </div>
 </div>
 

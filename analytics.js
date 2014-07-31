@@ -1,16 +1,16 @@
-// Query globals
     var viewSelectorQuery;
     var pageviewsQuery;
-    // Resulting Query String
     var queryResults = "";
-    // Current metric to report
     var currentMetric;
 
-    var last;
-
     var viewSelector;
+    var data;
+    var dataGraph;
+    var dataMap;
+
     var start_date = '7daysAgo';
     var end_date = 'yesterday';
+    var filterPage;
 
     gapi.analytics.ready(function ()
     {
@@ -64,7 +64,7 @@
             }
         });
 
-        var dataGraph = new gapi.analytics.googleCharts.DataChart({
+        dataGraph = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:date',
@@ -87,7 +87,7 @@
             }
         });
 
-        var dataMap = new gapi.analytics.googleCharts.DataChart({
+        dataMap = new gapi.analytics.googleCharts.DataChart({
             reportType: 'ga',
             query: {
                 'dimensions': 'ga:country',
@@ -99,7 +99,6 @@
                 type: 'GEO',
                 container: 'map',
                 options: { 
-                    colors: ['#965AFF', '#5262E8', '#55B6FF', '#5BFFA8', '#4FE8E3' ], 
                     animation: {duration: 1000, easing: 'in'},
                     backgroundColor: { fill:'transparent' },
                     width: "100%"
@@ -118,16 +117,16 @@
         // Create and change  selector
         viewSelector.on('change', function (ids)
         {
-            var newIds = {
+            var new_ids = {
                 query: {
                     ids: ids,
                     'start-date': start_date,
                     'end-date': end_date,
                 }
             }
-            data.set(newIds).execute();
-            dataGraph.set(newIds).execute();
-            dataMap.set(newIds).execute();
+            data.set(new_ids).execute();
+            dataGraph.set(new_ids).execute();
+            dataMap.set(new_ids).execute();
         });
 
         // Create data object to query by title names
@@ -167,7 +166,7 @@
             number = 7;
         }
         // create page filter
-        var filterPage = 'ga:pagetitle==' + page;
+        filterPage = 'ga:pagetitle==' + page;
         // create new start date
         var numberOfDays = number + 'daysAgo';
         // update current metric
@@ -244,4 +243,30 @@
         start_date = days + "daysAgo";
         console.log(start_date);
         viewSelector.execute();
+    }
+
+    function change_page(page) {
+        if (page) {
+            filterPage = 'ga:pagetitle==' + page;
+            var visual_ids = {
+                query: {
+                    'filters' : filterPage,
+                }
+            }
+            dataGraph.set(visual_ids).execute();
+            dataMap.set(visual_ids).execute();
+        }
+    }
+
+    function overview() {
+        filterPage = null;
+        var visual_ids = {
+            query: {
+                'filters' : filterPage,
+            }
+        }
+        dataGraph.set(visual_ids).execute();
+        dataMap.set(visual_ids).execute();
+        document.getElementById('page_displayed').innerHTML = "EHP Totals: ";
+        document.getElementById('overview').style.display = "none";
     }
